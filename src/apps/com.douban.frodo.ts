@@ -39,6 +39,12 @@ export default defineGkdApp({
             'https://i.gkd.li/i/29175754', //搜索历史
           ],
         },
+        {
+          key: 3,
+          matches:
+            '@View[width<130 && height<130] <3 FrameLayout <2 FrameLayout < [vid="sdk_view"]',
+          snapshotUrls: 'https://i.gkd.li/i/29440951',
+        },
 
         // 坐标点击的放后面, 从上往下依次点击按钮[跳过]附近的坐标, 总有一个能点中[跳过]
         {
@@ -49,8 +55,10 @@ export default defineGkdApp({
             left: 'width * 0.875',
             top: 'width * 0.10', // 目标节点的height变化太大，不建议使用
           },
-          matches: '[vid="ad_parent"][visibleToUser=true][width>=720]',
+          matches:
+            '[vid="ad_view" || vid="sdk_view"][visibleToUser=true][width>=720][childCount!=0]',
           snapshotUrls: 'https://i.gkd.li/i/23283060', // 按钮[跳过]的位置的top在 (0.05 ~ 0.12) * 宽度1216 范围内
+          excludeSnapshotUrls: 'https://i.gkd.li/i/29440952', // 白屏阶段 [vid="ad_loading_view"]
         },
         {
           key: 11,
@@ -60,7 +68,8 @@ export default defineGkdApp({
             left: 'width * 0.875',
             top: 'width * 0.135',
           },
-          matches: '[vid="ad_parent"][visibleToUser=true][width>=720]', // 选择器跟前面一样,只是点击位置不同
+          matches:
+            '[vid="ad_view" || vid="sdk_view"][visibleToUser=true][width>=720][childCount!=0]', // 选择器跟前面一样,只是点击位置不同
           snapshotUrls: [
             'https://i.gkd.li/i/13575257', // (旧快照) top在 (0.10 ~ 0.17) * 1080 内
             'https://i.gkd.li/i/18423724', // (0.11 ~ 0.16) * 1080
@@ -76,7 +85,8 @@ export default defineGkdApp({
             left: 'width * 0.875',
             top: 'width * 0.17',
           },
-          matches: '[vid="ad_parent"][visibleToUser=true][width>=720]',
+          matches:
+            '[vid="ad_view" || vid="sdk_view"][visibleToUser=true][width>=720][childCount!=0]',
           snapshotUrls: [
             'https://i.gkd.li/i/13601755', // (旧快照) top在 (0.11 ~ 0.18) * 1200 内
             'https://i.gkd.li/i/23324118', // (0.13 ~ 0.20) * 1280
@@ -94,7 +104,8 @@ export default defineGkdApp({
             left: 'width * 0.875',
             top: 'width * 0.20',
           },
-          matches: '[vid="ad_parent"][visibleToUser=true][width>=720]',
+          matches:
+            '[vid="ad_view" || vid="sdk_view"][visibleToUser=true][width>=720][childCount!=0]',
           snapshotUrls: 'https://i.gkd.li/i/16054268', // (0.15 ~ 0.22) * 1200
         },
       ],
